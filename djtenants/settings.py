@@ -50,6 +50,7 @@ TENANT_APPS = (
 
     # your tenant-specific apps
     'sandbox',
+    'hoge',
 )
 
 

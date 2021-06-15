@@ -18,5 +18,6 @@ from django.urls import path,include
 
 urlpatterns = [
     path('sandbox/', include("sandbox.urls")),
+    path('hoge/', include("hoge.urls")),
     path('admin/', admin.site.urls),
 ]
