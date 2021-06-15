@@ -2,6 +2,8 @@ from django import forms
 
 from .models import Sandbox
 
-class SandboxForm(forms.Form):
-    char = forms.CharField(max_length=20)
-    
+class SandboxForm(forms.ModelForm):
+    class Meta:
+        model = Sandbox
+        fields = '__all__'
+        exclude = ('id',)

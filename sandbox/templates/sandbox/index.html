@@ -7,9 +7,16 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="">
-        {{ form }}
-    </form>
+{% if sandboxlist %}
+    <ul>
+        {% for sandbox in sandboxlist %}
+        <li><a href="{% url 'sandbox:update' sandbox.id %}">{{sandbox.name}}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+    <p><a href="{% url 'sandbox:create' %}">addnew</a></p>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
         });

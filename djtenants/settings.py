@@ -36,12 +36,12 @@ SHARED_APPS = (
 
     'django.contrib.contenttypes',
     
+    'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites'
 )
 
 TENANT_APPS = (
@@ -49,14 +49,14 @@ TENANT_APPS = (
     'django.contrib.contenttypes',
 
     # your tenant-specific apps
-    'sandbox.apps.SandboxConfig',
+    'sandbox',
 )
 
 
 INSTALLED_APPS = list(SHARED_APPS) + [app for app in TENANT_APPS if app not in SHARED_APPS]
 
 MIDDLEWARE = [
-    'django_tenants.middleware.main.TenantMainMiddleware',
+    'django_tenants.middleware.main.TenantMainMiddleware', #先頭
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

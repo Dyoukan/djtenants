@@ -1,9 +1,29 @@
-from django.shortcuts import render
+import sandbox
+from typing import Any
+from django.http.request import HttpRequest
+from sandbox.models import Sandbox
+from django.shortcuts import redirect, render
 from django.views import generic
 
 from .forms import SandboxForm
+from .models import Sandbox
 
-# Create your views here.
-class IndexView(generic.FormView):
-    template_name = "sandbox/index.html"
+class IndexView(generic.ListView):
+    template_name='sandbox/index.html'
+    context_object_name = 'sandboxlist'
+
+    def get_queryset(self):
+        return Sandbox.objects.filter()[:]
+    pass
+
+class CreateView(generic.CreateView):
+    model = Sandbox
     form_class = SandboxForm
+    template_name = 'sandbox/detail.html'
+    success_url = '/sandbox'
+
+class UpdateView(generic.UpdateView):
+    model = Sandbox
+    form_class = SandboxForm
+    template_name = 'sandbox/detail.html'
+    success_url = '/sandbox'
