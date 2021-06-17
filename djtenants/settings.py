@@ -34,6 +34,8 @@ SHARED_APPS = (
     # you must list the app where your tenant model resides in
     'tenants',
 
+    'account',
+
     'django.contrib.contenttypes',
     
     'django.contrib.sites',
@@ -42,6 +44,7 @@ SHARED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
 )
 
 TENANT_APPS = (
@@ -152,3 +155,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 TENANT_MODEL = "tenants.Tenant"
 TENANT_DOMAIN_MODEL = "tenants.Domain"
+

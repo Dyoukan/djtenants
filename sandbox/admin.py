@@ -6,4 +6,3 @@ from .models import Sandbox
 @admin.register(Sandbox)
 class SandboxAdmin(TenantAdminMixin, admin.ModelAdmin):
     list_display = ('name', 'name')
-
